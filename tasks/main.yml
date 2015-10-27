@@ -1,0 +1,49 @@
+---
+- name: (Ubuntu) cpp dev packages...
+  when: ansible_distribution == "Ubuntu"
+  environment: proxy_env
+  apt: name={{ item }}
+  with_items:
+    - g++
+    - gdb
+    - graphviz
+    - valgrind
+    - cmake
+    - libboost-dev
+    - automake
+    - kcachegrind
+    - ccache
+    - protobuf-compiler
+    - libprotobuf-dev
+    - doxygen
+    - bison
+    - flex
+    - libbison-dev
+    - libyaml-dev
+
+- name: (Fedora) cpp dev packages...
+  when: ansible_distribution == "Fedora"
+  environment: proxy_env
+  yum: name={{ item }}
+  with_items:
+    - gcc-c++
+    - gdb
+    - graphviz
+    - valgrind
+    - cmake
+    - boost
+    - boost-devel
+    - automake
+    - kcachegrind
+    - ccache
+    - protobuf
+    - protobuf-compiler
+    - doxygen
+    - bison
+    - bison-devel
+    - flex
+    - flex-devel
+    - libyaml
+    - libyaml-devel
+    - ddd
+    - clang
